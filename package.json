@@ -41,7 +41,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "object-mapper": "^3.0.1"
+    "object-mapper": "^3.0.1",
+    "q": "^1.4.1"
   },
   "devDependencies": {
     "code": "^3.0.2",
