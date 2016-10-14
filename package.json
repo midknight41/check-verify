@@ -1,8 +1,8 @@
 {
   "name": "check-verify",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Parameter validation utility",
-  "main": "./dist/lib/index.js",
+  "main": "./dist/lib/check-verify.js",
   "scripts": {
     "prebuild": "npm run clean",
     "build": "tsc --pretty -p ./ -d",
