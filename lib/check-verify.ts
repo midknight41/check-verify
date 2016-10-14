@@ -1,5 +1,8 @@
 ﻿import * as Q from "q";
 import * as urlMod from "url";
+import * as mod from "object-mapper";
+
+const objectMapper: any = mod;
 
 export enum Modes {
   PromiseMode = 1,
@@ -13,26 +16,6 @@ export function thrower() {
 export function promiser() {
   return new CheckVerify<Q.Promise>(Modes.PromiseMode);
 }
-
-// promiser()
-//  .check("itemId").is.a.string()
-//  .check("itemName").is.a.string()
-//  .verify({ itemId, itemName });
-
-// thrower()
-//  .check("item.id").is.a.string()
-//  .check("item.name").is.a.string()
-//  .check("item.tests").is.an.array()
-//  .verify({ id: "a", name: "b" });
-
-
-// const check = thrower();
-
-// check("item.id").is.a.string()
-// check("item.name").is.a.string()
-// check("item.tests").is.an.array()
-
-// check.verify({ id: "a", name: "b" });
 
 export class CheckVerify<T> {
 
@@ -157,7 +140,8 @@ export class CheckVerify<T> {
 
       for (const test of item.tests) {
 
-        const error = this[`${test}Test_`](source[item.field], item.field);
+        const value = objectMapper.getKeyValue(source, item.field); // source[item.field];
+        const error = this[`${test}Test_`](value, item.field);
 
         if (error !== null) {
           return error;

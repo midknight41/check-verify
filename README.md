@@ -6,7 +6,7 @@ In flux. **Not ready for production use.**
 
 - travis
 - npm publish v0.0.1 
-- object-mapper integration
 - coveralls
 - david
+- documentation
 - greenkeeper
