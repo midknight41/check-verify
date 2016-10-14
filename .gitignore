@@ -79,6 +79,7 @@ test/*.js
 
 # coverage reports
 coverage
+.coveralls.yml
 
 # visual studio database projects
 *.dbmdl
