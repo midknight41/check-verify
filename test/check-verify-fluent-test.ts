@@ -20,7 +20,7 @@ method("check", () => {
     checker
       .check("id").is.a.string()
       .check("first").is.a.string()
-      .check("last").is.a.string()
+      .check("last").is.a.string();
 
     return done();
   });
@@ -38,7 +38,7 @@ method("check", () => {
 
   lab.test("The number of checks remains consistent after verification", done => {
 
-    const params = { "id": "123", "first": "john", "last": "doe" }
+    const params = { "id": "123", "first": "john", "last": "doe" };
     checker.verify(params);
 
     const result = checker.explain();
@@ -53,7 +53,7 @@ method("check", () => {
   lab.test("throws if first check fails", done => {
 
     const field = "id";
-    const params = { "id": true, "first": "john", "last": "doe" }
+    const params = { "id": true, "first": "john", "last": "doe" };
 
     validateChain(checker, field, params, done);
   });
@@ -61,7 +61,7 @@ method("check", () => {
   lab.test("throws if middle check fails", done => {
 
     const field = "first";
-    const params = { "id": "123", "first": true, "last": "doe" }
+    const params = { "id": "123", "first": true, "last": "doe" };
 
     validateChain(checker, field, params, done);
   });
@@ -69,11 +69,11 @@ method("check", () => {
   lab.test("throws if last check fails", done => {
 
     const field = "last";
-    const params = { "id": "123", "first": "john", "last": true }
+    const params = { "id": "123", "first": "john", "last": true };
 
     validateChain(checker, field, params, done);
   });
-  
+
 });
 
 

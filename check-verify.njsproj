@@ -43,16 +43,13 @@
     <Content Include="tslint.json" />
     <TypeScriptCompile Include="lib\check-verify.ts" />
     <TypeScriptCompile Include="lib\index.ts" />
-    <TypeScriptCompile Include="lib\interfaces.ts" />
-    <TypeScriptCompile Include="lib\map-factory.ts" />
-    <TypeScriptCompile Include="lib\mapper.ts" />
-    <TypeScriptCompile Include="lib\mapping.ts" />
     <TypeScriptCompile Include="Scripts\typings\code\code.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\lab\lab.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\object-mapper\object-mapper.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\q\Q.d.ts" />
+    <TypeScriptCompile Include="test\check-verify-fluent-test.ts" />
     <TypeScriptCompile Include="test\check-verify-promiser-test.ts" />
     <TypeScriptCompile Include="test\check-verify-thrower-test.ts" />
     <TypeScriptCompile Include="test\helpers\TestHelper.ts" />
