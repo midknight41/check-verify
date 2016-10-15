@@ -97,7 +97,7 @@ addUser("123", "john", "doe");
 For debugging purposes you can also use ```explain()```:
 
 ```js
-	const result thrower()
+	const result = thrower()
 		.check("id").is.a.number()
 		.explain();
 
