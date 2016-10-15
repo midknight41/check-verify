@@ -46,7 +46,7 @@
     "q": "^1.4.1"
   },
   "devDependencies": {
-    "code": "^3.0.2",
+    "code": "^4.0.0",
     "coveralls": "^2.11.14",
     "istanbul": "^0.4.4",
     "jscoverage": "^0.6.0",
