@@ -15,6 +15,78 @@ class MyClass {
   public id: string = "123";
 }
 
+method("thrower", () => {
+
+  lab.test("A thrower with no source provided does not execute immediately when a test is called", done => {
+
+    const obj = { id: 123 };
+
+    thrower()
+      .check("id").is.a.string();
+
+    return done();
+
+  });
+
+  lab.test("A thrower with a source provided executes immediately when a test is called", done => {
+
+    const obj = { id: 123 };
+
+    try {
+      thrower(obj)
+        .check("id").is.a.string();
+
+    } catch (error) {
+
+      expect(error).to.be.an.error();
+      expect(error.message).to.contain([`"id"`, "a populated string"]);
+
+      return done();
+
+    }
+
+    Code.fail("unexpected success");
+
+  });
+
+  lab.test("throws error if an provided a non-object as a source", done => {
+
+    try {
+      thrower("abc");
+
+    } catch (error) {
+
+      expect(error).to.be.an.error();
+      expect(error.message).to.contain(["must be an object"]);
+
+      return done();
+
+    }
+
+    Code.fail("unexpected success");
+
+  });
+
+  lab.test("throws error if an provided a array as a source", done => {
+
+    try {
+      thrower(["abc"]);
+
+    } catch (error) {
+
+      expect(error).to.be.an.error();
+      expect(error.message).to.contain(["must be an object"]);
+
+      return done();
+
+    }
+
+    Code.fail("unexpected success");
+
+  });
+
+});
+
 method("verify", () => {
 
   lab.test("A class as a source does not produce an error", done => {
@@ -23,7 +95,7 @@ method("verify", () => {
 
     thrower()
       .check("id").is.a.string()
-      .verify({ id: "123" });
+      .verify(obj);
 
     done();
 
@@ -42,7 +114,6 @@ method("verify", () => {
     }
 
     Code.fail("success when we didn't expect it");
-
 
   });
 

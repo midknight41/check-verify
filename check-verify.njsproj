@@ -34,6 +34,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include=".coveralls.yml" />
+    <Content Include=".gitignore" />
     <Content Include=".travis.yml" />
     <Content Include="CHANGELOG.md" />
     <Content Include="LICENSE" />
@@ -49,6 +51,7 @@
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\object-mapper\object-mapper.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\q\Q.d.ts" />
+    <TypeScriptCompile Include="test\check-verify-deep-references-test.ts" />
     <TypeScriptCompile Include="test\check-verify-fluent-test.ts" />
     <TypeScriptCompile Include="test\check-verify-promiser-test.ts" />
     <TypeScriptCompile Include="test\check-verify-thrower-test.ts" />

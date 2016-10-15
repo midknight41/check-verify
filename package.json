@@ -14,7 +14,7 @@
     "pretest": "npm run build",
     "test": "npm run lint && lab ./dist/test/ -v -S --assert code",
     "pret": "npm run build",
-    "t": "lab ./dist/test/ -v -S -c --coverage-path ./dist/lib -r lcov --assert code",
+    "t": "lab ./dist/test/ -v -S --assert code",
     "travis": "npm run test",
     "premajor": "npm run test",
     "major": "npm version major -m \"published to npm as v%s\" && git push --follow-tags && npm publish",

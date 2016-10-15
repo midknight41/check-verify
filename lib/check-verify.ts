@@ -9,12 +9,12 @@ export enum Modes {
   ThrowMode = 2
 }
 
-export function thrower() {
-  return new CheckVerify<void>(Modes.ThrowMode);
+export function thrower(source: Object = null) {
+  return new CheckVerify<void>(Modes.ThrowMode, source);
 }
 
 export function promiser() {
-  return new CheckVerify<Q.Promise>(Modes.PromiseMode);
+  return new CheckVerify<Q.Promise>(Modes.PromiseMode, null);
 }
 
 export class CheckVerify<T> {
@@ -23,8 +23,23 @@ export class CheckVerify<T> {
   private currentCheck = null;
   private checks: any[] = [];
   private finalised: boolean = false;
+  private fastFailEnabled: boolean = false;
+  private source: Object = null;
 
-  constructor(mode: Modes) {
+  constructor(mode: Modes, source: Object) {
+
+    if (source !== null) {
+
+      if (typeof source !== "object" || Array.isArray(source) === true) {
+
+        throw new Error("source data must be an object to validate");
+
+      }
+
+      this.fastFailEnabled = true;
+    }
+
+    this.source = source;
     this.mode = mode;
   }
 
@@ -74,50 +89,61 @@ export class CheckVerify<T> {
 
   public array(): CheckVerify<T> {
 
-    this.checkStarted_();
-    this.currentCheck.tests.push("array");
-
+    this.registerAndCheckFastFail_("array");
     return this;
   }
 
   public object(): CheckVerify<T> {
-    this.checkStarted_();
-    this.currentCheck.tests.push("object");
 
+    this.registerAndCheckFastFail_("object");
     return this;
   }
 
   public function(): CheckVerify<T> {
-    this.checkStarted_();
-    this.currentCheck.tests.push("function");
 
+    this.registerAndCheckFastFail_("function");
     return this;
   }
 
   public number(): CheckVerify<T> {
-    this.checkStarted_();
-    this.currentCheck.tests.push("number");
 
+    this.registerAndCheckFastFail_("number");
     return this;
+
   }
+
   public boolean(): CheckVerify<T> {
-    this.checkStarted_();
-    this.currentCheck.tests.push("boolean");
 
+    this.registerAndCheckFastFail_("boolean");
     return this;
+
   }
-  public string(): CheckVerify<T> {
-    this.checkStarted_();
-    this.currentCheck.tests.push("string");
 
+  public string(): CheckVerify<T> {
+
+    this.registerAndCheckFastFail_("string");
     return this;
+
   }
 
   public url(): CheckVerify<T> {
-    this.checkStarted_();
-    this.currentCheck.tests.push("url");
 
+    this.registerAndCheckFastFail_("url");
     return this;
+  }
+
+  private registerAndCheckFastFail_(type: string) {
+
+    this.checkStarted_();
+    this.currentCheck.tests.push(type);
+
+    if (this.fastFailEnabled && this.mode === Modes.ThrowMode) {
+      const error = this.runTests_(this.source, this.currentCheck);
+
+      if (error) {
+        throw error;
+      }
+    }
   }
 
   private finaliseChecks_() {
@@ -128,7 +154,6 @@ export class CheckVerify<T> {
 
   private execute_(source: Object) {
 
-
     if (source === null || source === undefined || typeof source !== "object") {
 
       return new Error("source data must be an object to validate");
@@ -138,16 +163,12 @@ export class CheckVerify<T> {
     // execute all checks
     for (const item of this.checks) {
 
-      for (const test of item.tests) {
+      const error = this.runTests_(source, item);
 
-        const value = objectMapper.getKeyValue(source, item.field); // source[item.field];
-        const error = this[`${test}Test_`](value, item.field);
-
-        if (error !== null) {
-          return error;
-
-        }
+      if (error !== null) {
+        return error;
       }
+
     }
 
   }
@@ -157,8 +178,22 @@ export class CheckVerify<T> {
   get that() { return this; };
   get is() { return this; };
 
+  private runTests_(source, item) {
 
+    for (const test of item.tests) {
 
+      const value = objectMapper.getKeyValue(source, item.field); // source[item.field];
+      const error = this[`${test}Test_`](value, item.field);
+
+      if (error !== null) {
+        return error;
+
+      }
+    }
+
+    return null;
+
+  }
 
   private objectTest_(object: Object, name?: string): Error {
     if (object === null || object === undefined || typeof object !== "object" || Array.isArray(object) === true) return this.generateError(name, "an object");
