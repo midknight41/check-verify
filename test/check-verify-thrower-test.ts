@@ -49,6 +49,26 @@ method("thrower", () => {
 
   });
 
+  lab.test("throws error check isn't the first method called", done => {
+
+    try {
+      thrower({id: 123}).is.a.string();
+
+    } catch (error) {
+
+      done.note(error.message);
+      expect(error).to.be.an.error();
+      expect(error.message).to.contain(["check method must be called"]);
+
+      return done();
+
+    }
+
+    Code.fail("unexpected success");
+
+  });
+
+
   lab.test("throws error if an provided a non-object as a source", done => {
 
     try {
