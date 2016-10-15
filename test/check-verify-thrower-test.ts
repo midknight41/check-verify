@@ -56,7 +56,6 @@ method("thrower", () => {
 
     } catch (error) {
 
-      done.note(error.message);
       expect(error).to.be.an.error();
       expect(error.message).to.contain(["check method must be called"]);
 
