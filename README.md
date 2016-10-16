@@ -43,10 +43,10 @@ const thrower = require("check-verify").thrower;
 function addUser(id, person) {
 
 	thrower()
-		.check("id").is.a.number() // an error will be thrown here
+		.check("id").is.a.number()
 		.check("person.first").is.a.string()
 		.check("person.last").is.a.string()
-		.verify({ id, person });
+		.verify({ id, person }); // an error will be thrown here
 
 		// do stuff
 }
@@ -61,13 +61,13 @@ The ```promiser``` method returns a ```CheckVerify``` object that will reject a 
 ```js
 const promiser = require("check-verify").promiser;
 
-function addUser(id, first, last) {
+function addUser(id, person) {
 
 	return promiser()
 		.check("id").is.a.number()
-		.check("first").is.a.string()
-		.check("last").is.a.string()
-		.verify({ id, first, last })
+		.check("person.first").is.a.string()
+		.check("person.last").is.a.string()
+		.verify({ id, person })
 		.then(() => {
 			// do stuff
 		})
@@ -77,7 +77,7 @@ function addUser(id, first, last) {
 
 }
 
-addUser("123", "john", "doe");
+addUser("123", { first: "john", last: "doe"});
 ```
 ## CheckVerify Syntax and methods
 

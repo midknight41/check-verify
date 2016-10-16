@@ -54,6 +54,7 @@
     <TypeScriptCompile Include="test\check-verify-deep-references-test.ts" />
     <TypeScriptCompile Include="test\check-verify-fluent-test.ts" />
     <TypeScriptCompile Include="test\check-verify-promiser-test.ts" />
+    <TypeScriptCompile Include="test\check-verify-grammar.ts" />
     <TypeScriptCompile Include="test\check-verify-thrower-test.ts" />
     <TypeScriptCompile Include="test\helpers\TestHelper.ts" />
   </ItemGroup>
