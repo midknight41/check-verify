@@ -243,7 +243,7 @@ export class CheckVerify<T> {
   }
 
   private dateTest_(value: Date, name?: string): Error {
-    
+
     if (value === null || value === undefined || Object.prototype.toString.call(value) !== "[object Date]") {
       return this.generateError(name, "a date");
     }
