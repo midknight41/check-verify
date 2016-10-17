@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/midknight41/check-verify.svg?branch=master)](https://travis-ci.org/midknight41/check-verify) [![Coverage Status](https://coveralls.io/repos/github/midknight41/check-verify/badge.svg?branch=master)](https://coveralls.io/github/midknight41/check-verify?branch=master)
 [![Deps](https://david-dm.org/midknight41/check-verify.svg)](https://david-dm.org/midknight41/check-verify#info=dependencies) [![devDependency Status](https://david-dm.org/midknight41/check-verify/dev-status.svg)](https://david-dm.org/midknight41/check-verify#info=devDependencies)
 
+[![NPM](https://nodei.co/npm/check-verify.png?downloads=true)](https://www.npmjs.com/package/check-verify/)
+
 A module for validating function and method parameters with support for deep references using dot notation. Supports throwing errors and rejecting promises.
 
 ## Basic Usage
