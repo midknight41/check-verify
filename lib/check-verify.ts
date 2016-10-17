@@ -132,6 +132,12 @@ export class CheckVerify<T> {
     return this;
   }
 
+  public date(): CheckVerify<T> {
+
+    this.registerAndCheckFastFail_("date");
+    return this;
+  }
+
   private registerAndCheckFastFail_(type: string) {
 
     this.checkStarted_();
@@ -196,7 +202,8 @@ export class CheckVerify<T> {
   }
 
   private objectTest_(object: Object, name?: string): Error {
-    if (object === null || object === undefined || typeof object !== "object" || Array.isArray(object) === true) return this.generateError(name, "an object");
+
+    if (object === null || object === undefined || typeof object !== "object" || Array.isArray(object) === true || Object.prototype.toString.call(object) === "[object Date]" ) return this.generateError(name, "an object");
     return null;
   }
 
@@ -233,6 +240,15 @@ export class CheckVerify<T> {
 
     return null;
 
+  }
+
+  private dateTest_(value: Date, name?: string): Error {
+    
+    if (value === null || value === undefined || Object.prototype.toString.call(value) !== "[object Date]") {
+      return this.generateError(name, "a date");
+    }
+
+    return null;
   }
 
   private checkStarted_() {

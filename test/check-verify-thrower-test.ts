@@ -227,6 +227,15 @@ method("is.a.url()", () => {
 
 });
 
+method("is.a.date()", () => {
+
+  const data = generateTestData("date");
+
+  genericTest("date", "not a date", data.goodValue, data.bad);
+
+});
+
+
 function generateTestData(goodName: string) {
 
   const items = [{ name: "boolean", value: true },
@@ -234,7 +243,8 @@ function generateTestData(goodName: string) {
   { name: "string", value: "abc" },
   { name: "object", value: {} },
   { name: "array", value: ["a"] },
-  { name: "function", value: function () { return; } }
+  { name: "function", value: function () { return; } },
+  { name: "date", value: new Date() }
   ];
 
   let goodValue;

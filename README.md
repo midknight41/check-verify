@@ -90,6 +90,7 @@ addUser("123", { first: "john", last: "doe"});
 - array
 - object
 - url
+- date
 
 ### Additional Grammar
 - a
