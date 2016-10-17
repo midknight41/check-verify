@@ -7,13 +7,13 @@ A module for validating function and method parameters with support for deep ref
 
 ## Basic Usage
 
-**check-verify** exports two functions: ```thrower``` and ```promiser```. Bother return a ```CheckVerify``` object with slightly different behaviour.
+**check-verify** exports two functions: ```thrower``` and ```promiser```. Both return a ```CheckVerify``` object with slightly different behaviour.
 
 ### thrower()
 
 The ```thrower()``` function can be used in two ways: *FailFast* mode and *Verify* mode.
 
-*FailFast* mode is enabled by providing an object to the thrower method. If no object is supplied to will default to *Verify* mode. *Verify* mode will wait for all checks to be declared before validating whereas *FailFast* mode with execute the check as they are declared.
+*FailFast* mode is enabled by providing an object to the thrower function. If no object is supplied to will default to *Verify* mode. *Verify* mode will wait for ```verify()``` to be called before validating whereas *FailFast* mode with execute the check as they are declared.
 
 A thrower in *Verify* mode can be assigned to a variable and reused.
 
