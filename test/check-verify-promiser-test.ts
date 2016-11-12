@@ -1,7 +1,7 @@
 ﻿// Testing Framework
 import * as Code from "code";
 import * as Lab from "lab";
-import getHelper from "./helpers/TestHelper";
+import getHelper from "lab-testing";
 import * as Q from "q";
 
 import { promiser } from "../lib/check-verify";

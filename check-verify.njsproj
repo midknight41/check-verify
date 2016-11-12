@@ -46,6 +46,7 @@
     <TypeScriptCompile Include="lib\check-verify.ts" />
     <TypeScriptCompile Include="lib\index.ts" />
     <TypeScriptCompile Include="Scripts\typings\code\code.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\lab-testing\lab-testing.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\lab\lab.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
@@ -56,20 +57,19 @@
     <TypeScriptCompile Include="test\check-verify-promiser-test.ts" />
     <TypeScriptCompile Include="test\check-verify-grammar.ts" />
     <TypeScriptCompile Include="test\check-verify-thrower-test.ts" />
-    <TypeScriptCompile Include="test\helpers\TestHelper.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\typings\" />
     <Folder Include="Scripts\typings\code\" />
+    <Folder Include="Scripts\typings\lab-testing\" />
     <Folder Include="Scripts\typings\lab\" />
     <Folder Include="Scripts\typings\lodash\" />
     <Folder Include="Scripts\typings\node\" />
     <Folder Include="Scripts\typings\object-mapper\" />
     <Folder Include="Scripts\typings\q\" />
     <Folder Include="test\" />
-    <Folder Include="test\helpers\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
