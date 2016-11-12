@@ -22,7 +22,8 @@
     "preminor": "npm run test",
     "minor": "npm version minor -m \"published to npm as v%s\" && git push --follow-tags && npm publish",
     "prepatch": "npm run test",
-    "patch": "npm version patch -m \"published to npm as v%s\" && git push --follow-tags && npm publish"
+    "patch": "npm version patch -m \"published to npm as v%s\" && git push --follow-tags && npm publish",
+    "safe": "./safe-install check-verify"
   },
   "bugs": {
     "url": "https://github.com/midknight41/check-verify/issues"

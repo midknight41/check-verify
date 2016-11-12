@@ -29,7 +29,8 @@ function addUser(id, person) {
 	thrower({ id, person })
 		.check("id").is.a.number() // an error will be thrown here
 		.check("person.first").is.a.string()
-		.check("person.last").is.a.string();
+		.check("person.last").is.a.string()
+		.optional("person.title").is.a.string();
 
 		// do stuff
 }
@@ -48,6 +49,7 @@ function addUser(id, person) {
 		.check("id").is.a.number()
 		.check("person.first").is.a.string()
 		.check("person.last").is.a.string()
+		.optional("person.title").is.a.string()
 		.verify({ id, person }); // an error will be thrown here
 
 		// do stuff
@@ -69,6 +71,8 @@ function addUser(id, person) {
 		.check("id").is.a.number()
 		.check("person.first").is.a.string()
 		.check("person.last").is.a.string()
+		.optional("person.title").is.a.string()
+		
 		.verify({ id, person })
 		.then(() => {
 			// do stuff
@@ -81,6 +85,7 @@ function addUser(id, person) {
 
 addUser("123", { first: "john", last: "doe"});
 ```
+
 ## CheckVerify Syntax and methods
 
 ### Supported validations

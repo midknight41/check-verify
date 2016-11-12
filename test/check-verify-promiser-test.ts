@@ -85,6 +85,64 @@ method("verify", () => {
 
 });
 
+method("optional", () => {
+
+  lab.test("An null object will not reject", done => {
+
+    return promiser()
+      .optional("id").is.a.string()
+      .verify({ id: null })
+
+      .catch(error => {
+        Code.fail(`unexpected error: ${error.message}`);
+      });
+
+
+  });
+
+  lab.test("An undefined object will not reject", done => {
+
+    return promiser()
+      .optional("id").is.a.string()
+      .verify({ id: undefined })
+
+      .catch(error => {
+        Code.fail(`unexpected error: ${error.message}`);
+      });
+
+
+  });
+
+  lab.test("A successful verification will not reject", done => {
+
+    return promiser()
+      .optional("id").is.a.string()
+      .verify({ id: "a" })
+
+      .catch(error => {
+        Code.fail(`unexpected error: ${error.message}`);
+      });
+
+  });
+
+  lab.test("A unsuccessful verification will reject", done => {
+
+    return promiser()
+      .optional("id").is.a.string()
+      .verify({ id: 123 })
+
+      .then(() => {
+        Code.fail("success when we didn't expect it");
+      })
+      .catch(error => {
+        expect(error).to.be.an.error();
+      });
+
+  });
+
+});
+
+
 method("is.a.string()", () => {
 
   const data = generateTestData("string");

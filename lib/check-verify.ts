@@ -17,11 +17,17 @@ export function promiser() {
   return new CheckVerify<Q.Promise>(Modes.PromiseMode, null);
 }
 
+export interface CheckSpec {
+  field: string;
+  tests: string[];
+  required: boolean;
+}
+
 export class CheckVerify<T> {
 
   private mode: Modes;
-  private currentCheck = null;
-  private checks: any[] = [];
+  private currentCheck: CheckSpec = null;
+  private checks: CheckSpec[] = [];
   private finalised: boolean = false;
   private fastFailEnabled: boolean = false;
   private source: Object = null;
@@ -47,7 +53,17 @@ export class CheckVerify<T> {
 
     this.finaliseChecks_();
 
-    this.currentCheck = { field, tests: [] };
+    this.currentCheck = { field, tests: [], required: true };
+    this.finalised = false;
+
+    return this;
+  }
+
+  public optional(field: string): CheckVerify<T> {
+
+    this.finaliseChecks_();
+
+    this.currentCheck = { field, tests: [], required: false };
     this.finalised = false;
 
     return this;
@@ -184,17 +200,28 @@ export class CheckVerify<T> {
   get that() { return this; };
   get is() { return this; };
 
-  private runTests_(source, item) {
+  private runTests_(source, item: CheckSpec) {
 
     for (const test of item.tests) {
 
       const value = objectMapper.getKeyValue(source, item.field); // source[item.field];
+
+      // Only test required fields if the value isn't present
+      if (item.required === false) {
+
+        if (value === null || value === undefined) {
+          continue;
+        }
+
+      }
+
       const error = this[`${test}Test_`](value, item.field);
 
       if (error !== null) {
         return error;
 
       }
+
     }
 
     return null;
@@ -203,7 +230,7 @@ export class CheckVerify<T> {
 
   private objectTest_(object: Object, name?: string): Error {
 
-    if (object === null || object === undefined || typeof object !== "object" || Array.isArray(object) === true || Object.prototype.toString.call(object) === "[object Date]" ) return this.generateError(name, "an object");
+    if (object === null || object === undefined || typeof object !== "object" || Array.isArray(object) === true || Object.prototype.toString.call(object) === "[object Date]") return this.generateError(name, "an object");
     return null;
   }
 

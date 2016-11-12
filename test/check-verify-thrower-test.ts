@@ -52,7 +52,7 @@ method("thrower", () => {
   lab.test("throws error check isn't the first method called", done => {
 
     try {
-      thrower({id: 123}).is.a.string();
+      thrower({ id: 123 }).is.a.string();
 
     } catch (error) {
 
@@ -165,6 +165,72 @@ method("verify", () => {
     }
 
     Code.fail("success when we didn't expect it");
+  });
+
+});
+
+method("optional", () => {
+
+  lab.test("An null object will not throw an error", done => {
+
+    try {
+      thrower()
+        .optional("id").is.a.string()
+        .verify({ id: null });
+
+      return done();
+
+    } catch (error) {
+      Code.fail(`unexpected error: ${error.message}`);
+    }
+
+  });
+
+  lab.test("An undefined object will not throw an error", done => {
+
+    try {
+      thrower()
+        .optional("id").is.a.string()
+        .verify({ id: undefined });
+
+      return done();
+
+    } catch (error) {
+      Code.fail(`unexpected error: ${error.message}`);
+    }
+
+  });
+
+  lab.test("A successful verification will not throw an error", done => {
+
+    try {
+      thrower()
+        .optional("id").is.a.string()
+        .verify({ id: "a" });
+
+      return done();
+
+    } catch (error) {
+      Code.fail(`unexpected error: ${error.message}`);
+    }
+
+  });
+
+  lab.test("A unsuccessful verification will throw an error", done => {
+
+    try {
+      thrower()
+        .optional("id").is.a.string()
+        .verify({ id: 123 });
+
+
+    } catch (error) {
+      expect(error).to.be.an.error();
+      return done();
+    }
+
+    Code.fail("success when we didn't expect it");
+
   });
 
 });
