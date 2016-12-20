@@ -7,13 +7,29 @@ import { thrower } from "../lib/check-verify";
 
 const lab = exports.lab = Lab.script();
 const expect = Code.expect;
-const helper = getHelper(lab);
+const testing = getHelper(lab);
 
-const method = helper.createExperiment("CheckVerify", "thrower");
+const method = testing.createExperiment("CheckVerify", "thrower");
 
 class MyClass {
   public id: string = "123";
 }
+
+method("The check() method", () => {
+
+  let checker = thrower();
+
+  testing.throws.methodParameterTest(checker, checker.check, ["field"], "fieldName");
+
+});
+
+method("The optional() method", () => {
+
+  let checker = thrower();
+
+  testing.throws.methodParameterTest(checker, checker.optional, ["field"], "fieldName");
+
+});
 
 method("thrower", () => {
 

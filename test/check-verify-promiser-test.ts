@@ -8,13 +8,30 @@ import { promiser } from "../lib/check-verify";
 
 const lab = exports.lab = Lab.script();
 const expect = Code.expect;
-const helper = getHelper(lab);
+const testing = getHelper(lab);
 
-const method = helper.createExperiment("CheckVerify", "promiser");
+const method = testing.createExperiment("CheckVerify", "promiser");
 
 class MyClass {
   public id: string = "123";
 }
+
+method("The check() method", () => {
+
+  let checker = promiser();
+
+  testing.throws.methodParameterTest(checker, checker.check, ["field"], "fieldName");
+
+});
+
+method("The optional() method", () => {
+
+  let checker = promiser();
+
+  testing.throws.methodParameterTest(checker, checker.optional, ["field"], "fieldName");
+
+});
+
 
 method("verify", () => {
 

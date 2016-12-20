@@ -7,9 +7,9 @@ import { thrower } from "../lib/check-verify";
 
 const lab = exports.lab = Lab.script();
 const expect = Code.expect;
-const helper = getHelper(lab);
+const testing = getHelper(lab);
 
-const method = helper.createExperiment("CheckVerify", "fluent");
+const method = testing.createExperiment("CheckVerify", "fluent");
 
 method("check", () => {
 

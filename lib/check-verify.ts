@@ -51,6 +51,12 @@ export class CheckVerify<T> {
 
   public check(field: string): CheckVerify<T> {
 
+    const err = this.stringTest_(field, "field");
+
+    if (err !== null) {
+      throw err;
+    }
+
     this.finaliseChecks_();
 
     this.currentCheck = { field, tests: [], required: true };
@@ -60,6 +66,12 @@ export class CheckVerify<T> {
   }
 
   public optional(field: string): CheckVerify<T> {
+
+    const err = this.stringTest_(field, "field");
+
+    if (err !== null) {
+      throw err;
+    }
 
     this.finaliseChecks_();
 
