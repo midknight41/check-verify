@@ -7,7 +7,7 @@
   "typings": "./dist/lib/check-verify.d.ts",
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc --pretty -p ./ -d",
+    "build": "tsc --pretty --lib es2015 -p ./ -d",
     "clean": "./node_modules/.bin/rimraf dist/*",
     "precover": "npm run build",
     "cover": "istanbul cover ./node_modules/lab/bin/lab ./dist/test --leaks",
@@ -50,6 +50,7 @@
     "@types/node": "^7.0.0",
     "@types/q": "0.0.32",
     "@types/sinon": "^1.16.34",
+    "lab-testing": "^1.0.0",
     "object-mapper": "^3.0.1",
     "q": "^1.4.1"
   },
@@ -59,7 +60,7 @@
     "istanbul": "^0.4.4",
     "jscoverage": "^0.6.0",
     "lab": "^11.0.1",
-    "lab-testing": "^0.1.1",
+    "lab-testing": "^1.0.0",
     "lodash": "^4.16.4",
     "rimraf": "^2.5.3",
     "sinon": "^1.17.6",
