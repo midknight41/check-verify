@@ -3,6 +3,8 @@
   "version": "0.4.2",
   "description": "Parameter validation utility",
   "main": "./dist/lib/check-verify.js",
+  "types": "./dist/lib/check-verify.d.ts",
+  "typings": "./dist/lib/check-verify.d.ts",
   "scripts": {
     "prebuild": "npm run clean",
     "build": "tsc --pretty -p ./ -d",
@@ -43,6 +45,11 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@types/code": "^4.0.1",
+    "@types/lodash": "^4.14.48",
+    "@types/node": "^7.0.0",
+    "@types/q": "0.0.32",
+    "@types/sinon": "^1.16.34",
     "object-mapper": "^3.0.1",
     "q": "^1.4.1"
   },
