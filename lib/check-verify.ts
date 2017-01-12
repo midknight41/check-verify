@@ -14,7 +14,7 @@ export function thrower(source: Object = null) {
 }
 
 export function promiser() {
-  return new CheckVerify<Q.Promise>(Modes.PromiseMode, null);
+  return new CheckVerify<Q.Promise<any>>(Modes.PromiseMode, null);
 }
 
 export interface CheckSpec {

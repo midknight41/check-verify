@@ -1,11 +1,13 @@
 {
   "name": "check-verify",
-  "version": "0.4.2",
+  "version": "1.0.1",
   "description": "Parameter validation utility",
   "main": "./dist/lib/check-verify.js",
+  "types": "./dist/lib/check-verify.d.ts",
+  "typings": "./dist/lib/check-verify.d.ts",
   "scripts": {
     "prebuild": "npm run clean",
-    "build": "tsc --pretty -p ./ -d",
+    "build": "tsc --pretty --lib es2015 -p ./ -d",
     "clean": "./node_modules/.bin/rimraf dist/*",
     "precover": "npm run build",
     "cover": "istanbul cover ./node_modules/lab/bin/lab ./dist/test --leaks",
@@ -43,6 +45,12 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@types/code": "^4.0.1",
+    "@types/lodash": "^4.14.48",
+    "@types/node": "^7.0.0",
+    "@types/q": "0.0.32",
+    "@types/sinon": "^1.16.34",
+    "lab-testing": "^1.0.0",
     "object-mapper": "^3.0.1",
     "q": "^1.4.1"
   },
@@ -52,11 +60,11 @@
     "istanbul": "^0.4.4",
     "jscoverage": "^0.6.0",
     "lab": "^11.0.1",
-    "lab-testing": "^0.1.1",
+    "lab-testing": "^1.0.0",
     "lodash": "^4.16.4",
     "rimraf": "^2.5.3",
     "sinon": "^1.17.6",
-    "tslint": "4.3.1",
+    "tslint": "^4.3.1",
     "typescript": "^2.0.3"
   },
   "files": [
