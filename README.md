@@ -1,5 +1,7 @@
 # check-verify
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/midknight41/check-verify.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/midknight41/check-verify.svg?branch=master)](https://travis-ci.org/midknight41/check-verify) [![Coverage Status](https://coveralls.io/repos/github/midknight41/check-verify/badge.svg?branch=master)](https://coveralls.io/github/midknight41/check-verify?branch=master)
 [![Deps](https://david-dm.org/midknight41/check-verify.svg)](https://david-dm.org/midknight41/check-verify#info=dependencies) [![devDependency Status](https://david-dm.org/midknight41/check-verify/dev-status.svg)](https://david-dm.org/midknight41/check-verify#info=devDependencies)
 
