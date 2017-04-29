@@ -208,10 +208,10 @@ export class CheckVerify<T> {
 
   }
 
-  get a() { return this; };
-  get an() { return this; };
-  get that() { return this; };
-  get is() { return this; };
+  get a() { return this; }
+  get an() { return this; }
+  get that() { return this; }
+  get is() { return this; }
 
   private runTests_(source, item: CheckSpec) {
 
