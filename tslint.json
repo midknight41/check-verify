@@ -1,7 +1,7 @@
 {
     "rules": {
         "align": [
-          true,
+          false,
           "parameters", "statements"
         ],
         "comment-format": [
@@ -77,7 +77,7 @@
             "ban-keywords"
         ],
         "whitespace": [
-            true,
+            false,
             "check-branch", "check-decl", "check-operator", "check-module",
             "check-separator", "check-type", "check-typecast"
         ]

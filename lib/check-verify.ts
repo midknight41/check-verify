@@ -1,5 +1,4 @@
-﻿
-import * as Q from "q";
+﻿import * as Q from "q";
 import * as urlMod from "url";
 import * as mod from "object-mapper";
 
