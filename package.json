@@ -64,7 +64,7 @@
     "rimraf": "^2.6.0",
     "sinon": "^1.17.6",
     "tslint": "^4.4.2",
-    "typescript": "2.2.2"
+    "typescript": "2.3.2"
   },
   "files": [
     "dist"
