@@ -1,6 +1,6 @@
 {
   "name": "check-verify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Parameter validation utility",
   "main": "./dist/lib/check-verify.js",
   "types": "./dist/lib/check-verify.d.ts",
