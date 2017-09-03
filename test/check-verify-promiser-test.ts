@@ -35,7 +35,7 @@ method("The optional() method", () => {
 
 method("verify", () => {
 
-  lab.test("A class as a source does not produce an error", done => {
+  lab.test("A class as a source does not produce an error", () => {
 
     const obj = new MyClass();
 
@@ -45,7 +45,7 @@ method("verify", () => {
 
   });
 
-  lab.test("A simple type will throw an error", done => {
+  lab.test("A simple type will throw an error", () => {
 
     return promiser()
       .check("id").is.a.string()
@@ -64,7 +64,7 @@ method("verify", () => {
 
   });
 
-  lab.test("An null object will throw an error", done => {
+  lab.test("An null object will throw an error", () => {
 
     return promiser()
       .check("id").is.a.string()
@@ -82,7 +82,7 @@ method("verify", () => {
 
   });
 
-  lab.test("An undefined object will throw an error", done => {
+  lab.test("An undefined object will throw an error", () => {
 
     return promiser()
       .check("id").is.a.string()
@@ -104,7 +104,7 @@ method("verify", () => {
 
 method("optional", () => {
 
-  lab.test("An null object will not reject", done => {
+  lab.test("An null object will not reject", () => {
 
     return promiser()
       .optional("id").is.a.string()
@@ -117,7 +117,7 @@ method("optional", () => {
 
   });
 
-  lab.test("An undefined object will not reject", done => {
+  lab.test("An undefined object will not reject", () => {
 
     return promiser()
       .optional("id").is.a.string()
@@ -130,7 +130,7 @@ method("optional", () => {
 
   });
 
-  lab.test("A successful verification will not reject", done => {
+  lab.test("A successful verification will not reject", () => {
 
     return promiser()
       .optional("id").is.a.string()
@@ -142,7 +142,7 @@ method("optional", () => {
 
   });
 
-  lab.test("A unsuccessful verification will reject", done => {
+  lab.test("A unsuccessful verification will reject", () => {
 
     return promiser()
       .optional("id").is.a.string()
@@ -260,7 +260,7 @@ function genericTest(type, errorText, goodData, badData) {
 
   const fieldName = "field1";
 
-  lab.test(`A successful ${type} test does not produce an error`, done => {
+  lab.test(`A successful ${type} test does not produce an error`, () => {
 
     const source = {};
 
@@ -274,7 +274,7 @@ function genericTest(type, errorText, goodData, badData) {
 
   for (const badItem of badData) {
 
-    lab.test(`A ${type} check will fail on a ${badItem.name} value`, done => {
+    lab.test(`A ${type} check will fail on a ${badItem.name} value`, () => {
 
       const source = {};
       source[fieldName] = badItem.value;
@@ -298,7 +298,7 @@ function genericTest(type, errorText, goodData, badData) {
 
   }
 
-  lab.test(`A ${type} check will fail on a null value`, done => {
+  lab.test(`A ${type} check will fail on a null value`, () => {
 
     const source = {};
     source[fieldName] = null;
@@ -319,7 +319,7 @@ function genericTest(type, errorText, goodData, badData) {
 
   });
 
-  lab.test(`A ${type} check will fail on an undefined value`, done => {
+  lab.test(`A ${type} check will fail on an undefined value`, () => {
 
     const source = {};
     source[fieldName] = undefined;
