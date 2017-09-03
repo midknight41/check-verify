@@ -1,8 +1,9 @@
 ﻿import * as Q from "q";
 import * as urlMod from "url";
-import * as mod from "object-mapper";
+import * as mod from "map-factory";
 
-const objectMapper: any = mod;
+
+const factory: any = mod;
 
 export enum Modes {
   PromiseMode = 1,
@@ -216,7 +217,7 @@ export class CheckVerify<T> {
 
     for (const test of item.tests) {
 
-      const value = objectMapper.getKeyValue(source, item.field); // source[item.field];
+      const value = factory.getValue(source, item.field); // source[item.field];
 
       // Only test required fields if the value isn't present
       if (item.required === false) {
