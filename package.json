@@ -58,7 +58,7 @@
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.4",
     "jscoverage": "^0.6.0",
-    "lab": "^14.2.2",
+    "lab": "^15.0.0",
     "lab-testing": "^2.3.0",
     "lodash": "^4.16.4",
     "rimraf": "^2.6.0",
