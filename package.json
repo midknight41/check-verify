@@ -45,7 +45,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "map-factory": "^3.7.4",
+    "map-factory": "^3.8.0",
     "q": "^1.4.1"
   },
   "devDependencies": {
