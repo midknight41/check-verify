@@ -54,7 +54,7 @@
     "@types/q": "^1.0.5",
     "@types/node": "^8.0.26",
     "@types/sinon": "^2.3.3",
-    "code": "^4.1.0",
+    "code": "^5.2.4",
     "coveralls": "^3.0.0",
     "istanbul": "^0.4.4",
     "jscoverage": "^0.6.0",
