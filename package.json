@@ -62,7 +62,7 @@
     "lab-testing": "^2.3.0",
     "lodash": "^4.16.4",
     "rimraf": "^2.6.0",
-    "sinon": "^4.4.0",
+    "sinon": "^7.2.6",
     "tslint": "^5.7.0",
     "typescript": "2.6.1"
   },
