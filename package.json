@@ -52,7 +52,7 @@
     "@types/code": "^4.0.1",
     "@types/lodash": "^4.14.74",
     "@types/q": "^1.0.5",
-    "@types/node": "^8.0.26",
+    "@types/node": "^11.13.8",
     "@types/sinon": "^2.3.3",
     "code": "^4.1.0",
     "coveralls": "^3.0.0",
