@@ -60,7 +60,7 @@
     "jscoverage": "^0.6.0",
     "lab": "^14.2.2",
     "lab-testing": "^2.3.0",
-    "lodash": "^4.16.4",
+    "lodash": "^4.17.15",
     "rimraf": "^2.6.0",
     "sinon": "^4.4.0",
     "tslint": "^5.7.0",
