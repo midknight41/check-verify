@@ -61,7 +61,7 @@
     "lab": "^14.2.2",
     "lab-testing": "^2.3.0",
     "lodash": "^4.16.4",
-    "rimraf": "^2.6.0",
+    "rimraf": "^3.0.2",
     "sinon": "^4.4.0",
     "tslint": "^5.7.0",
     "typescript": "2.6.1"
